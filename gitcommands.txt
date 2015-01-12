@@ -1,0 +1,46 @@
+cd ~/Desktop
+git clone URL
+cd test-repo
+ls
+git remote -v
+git remote add origin URL
+##Edit README.md and then do the next step
+touch new.md
+ls
+git status
+git add .
+status
+git commit -m "Edit readme.md and add new.md"
+git status
+git log
+##This means pushing the MASTER branch to the ORIGIN remote
+git push origin master URL
+
+git remote -v
+git remote add upstream URL
+git remote -v
+git fetch upstream
+##Tell git to merge upstream/master branch to your working branch (master)
+git merge upstream/master
+git push origin master
+
+mkdir new-test
+cd new-test
+git init
+git remote add origin URL
+cp ../test.txt test.txt
+git status
+git add .
+git commit -m "Add test.txt"
+git pull origin master
+git push origin master
+
+cd..
+git clone URL
+cd new-test-2
+ls
+git remote -v
+cp ../test.txt test.txt
+git add .
+git commit -m "Add test.txt"
+git push origin master
