@@ -1,3 +1,61 @@
+command flags arguments
+command is the CLI command which does a specific task
+flags are the options we give to the command to trigger certain behaviors, preceded by a -
+arguments can be what the command is going to modify, or other options for the comannd
+
+git config --global user.name "Your Name Here"
+git config --global user.email "your _email@example.com"
+
+git config --list
+
+git init
+git remote add origin URL
+git clone URL
+
+## Should be done before committing
+git add . = adds all new files
+git add -u = updates tracking for files that changed names or were deleted
+git add -A = does both of the previous
+
+## This only updates local repo, not the remote repo on GitHub
+git commit -m "message"
+
+## Saved local commits which you would like to update on the remote (GitHub)
+git push
+
+git checkout -b branchname = create a branch
+git branch = see what branch you are on
+git checkout master = switch back to the master branch
+
+## This is a seondary heading
+### This is a tertiary heading
+
+Unordered lists
+* First item
+* Second item
+
+pwd = print working directory
+clear = clear the CLI
+ls = lists files and folders in the current directory
+ls -1 = hidden, unhidden files and folders
+ls -al = details for hidden, unhidden files and folders [-a and -l are flags, combined into -al]
+cd = change directory
+cd particular path
+cd with no argument takes you to home directory
+cd .. = one level above
+mkdir = make directory
+touch = creates an empty file
+cp = copy
+cp first_argument_source second_argument_destination
+cp -r = copy the contents [example, cp -r Documents More_Docs copies the contents of Documents into More_Docs]
+rm = remove
+rm -r = delete entire directory and their contents [example, rm -r More_Docs]
+mv = move
+mv = rename files [example, mv source_file renamed_file]
+echo = print w'ever arguments provided
+echo This would be a text line in a text file > newtext.txt
+date = print today's date [Mon Nov 4 20:48:03 EST 2013]
+
 cd ~/Desktop
 git clone URL
 cd test-repo
@@ -13,14 +71,14 @@ status
 git commit -m "Edit readme.md and add new.md"
 git status
 git log
-##This means pushing the MASTER branch to the ORIGIN remote
+## This means pushing the MASTER branch to the ORIGIN remote
 git push origin master URL
 
 git remote -v
 git remote add upstream URL
 git remote -v
 git fetch upstream
-##Tell git to merge upstream/master branch to your working branch (master)
+## Tell git to merge upstream/master branch to your working branch (master)
 git merge upstream/master
 git push origin master
 

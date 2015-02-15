@@ -1,0 +1,1504 @@
+r-help@r-project.org
+
+a <- available.packages()
+head(rownames(a), 3) ## Show the names of the first few packages
+
+install.packages()
+install.packages ("slidify")
+install.packages(c("slidify", "ggplot2", "devtools"))
+
+find.package("devtools")
+install.package("devtools")
+
+library()
+library(ggplot2)
+NOTE: DO not put the package name in quotes
+
+library(ggplot2)
+search() ## To see all of the functions that are part of ggplot2 package
+
+library(devtools)
+find_rtools() ## This should return TRUE in the console if Rtools installation was successful
+
+
+library(SDSFoundations)
+bull <- BullRiders
+
+# Visualize and describe the first variable of interest 
+hist(bull$RidePer)
+fivenum(bull$RidePer)
+mean(bull$RidePer)
+sd(bull$RidePer)
+
+# Visualize and describe the second variable of interest 
+hist(bull$Top10)
+fivenum(bull$Top10)
+mean(bull$Top10)
+sd(bull$Top10)
+
+# Create a scatterplot
+plot(bull$RidePer,bull$Top10)
+
+# Add line of best fit
+abline(lm(bull$Top10~bull$RidePer))
+
+# Calculate the correlation coefficient
+cor(bull$RidePer,bull$Top10)
+
+# Create a correlation matrix  
+vars <- c("Top10", "RidePer")
+cor(bull[,vars])
+
+#identify a specific record
+which(bull$Top10==5 & bull$RidePer==.53)
+
+bull[16,]
+
+# Visualize and describe the first variable of interest 
+hist(bull$Earnings)
+fivenum(bull$Earnings)
+mean(bull$Earnings)
+sd(bull$Earnings)
+
+# Create a scatterplot
+plot(bull$RidePer,bull$Earnings)
+
+# Add line of best fit
+abline(lm(bull$Earnings~bull$RidePer))
+
+# Calculate the correlation coefficient
+cor(bull$RidePer,bull$Earnings)
+
+# Create a correlation matrix  
+vars <- c("Earnings", "RidePer")
+cor(bull[,vars])
+
+# Create a scatterplot
+plot(bull$CupPoints,bull$Earnings)
+
+# Add line of best fit
+abline(lm(bull$Earnings~bull$CupPoints))
+
+# Calculate the correlation coefficient
+cor(bull$CupPoints,bull$Earnings)
+
+# Create a correlation matrix  
+vars <- c("Earnings", "CupPoints")
+cor(bull[,vars])
+
+# identify specific case
+which(bull$Earnings == max(bull$Earnings))
+
+#Subset the data
+nooutlier <-bull[-1,]
+
+# Create a scatterplot
+plot(nooutlier$RidePer,nooutlier$Earnings)
+
+# Add line of best fit
+abline(lm(nooutlier$Earnings~nooutlier$RidePer))
+
+# Calculate the correlation coefficient
+cor(nooutlier$RidePer,nooutlier$Earnings)
+
+# Create a correlation matrix  
+vars <- c("Earnings", "RidePer")
+cor(nooutlier[,vars])
+
+# Create a scatterplot
+plot(nooutlier$CupPoints,nooutlier$Earnings)
+
+# Add line of best fit
+abline(lm(nooutlier$Earnings~nooutlier$CupPoints))
+
+# Calculate the correlation coefficient
+cor(nooutlier$CupPoints,nooutlier$Earnings)
+
+# Create a correlation matrix  
+vars <- c("Earnings", "CupPoints")
+cor(nooutlier[,vars])
+
+#Create a new variable for the average number of rides per event for each bull rider in the dataset
+bull$RidesPerEvent <- bull$Rides/bull$Events
+
+# Visualize and describe the new variable of interest 
+hist(bull$RidesPerEvent)
+fivenum(bull$RidesPerEvent)
+mean(bull$RidesPerEvent)
+sd(bull$RidesPerEvent)
+
+# Create a scatterplot
+plot(bull$RidesPerEvent,bull$Place)
+
+# Add line of best fit
+abline(lm(bull$Place~bull$RidesPerEvent))
+
+# Calculate the correlation coefficient
+cor(bull$RidesPerEvent,bull$Place)
+
+# Create a correlation matrix  
+vars <- c("Place", "RidesPerEvent")
+cor(bull[,vars])
+
+# Create a scatterplot
+plot(examgrade$Minutes.Studied,examgrade$Exam.Grade)
+
+# Add line of best fit
+abline(lm(examgrade$Exam.Grade~examgrade$Minutes.Studied))
+
+# Calculate the correlation coefficient
+cor(examgrade$Minutes.Studied,examgrade$Exam.Grade)
+
+# Create a correlation matrix  
+vars <- c("Exam.Grade", "Minutes.Studied")
+cor(examgrade[,vars])
+
+#Subset the data
+nooutlierexamgrade <-examgrade[-7,]
+
+# Create a scatterplot
+plot(nooutlierexamgrade$Minutes.Studied,nooutlierexamgrade$Exam.Grade)
+
+# Add line of best fit
+abline(lm(nooutlierexamgrade$Exam.Grade~nooutlierexamgrade$Minutes.Studied))
+
+# Calculate the correlation coefficient
+cor(nooutlierexamgrade$Minutes.Studied,nooutlierexamgrade$Exam.Grade)
+
+# Create a correlation matrix  
+vars <- c("Exam.Grade", "Minutes.Studied")
+cor(nooutlierexamgrade[,vars])
+
+find.package("devtools")
+find.package("KernSmooth")
+library(KernSmooth)
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+R.version.string
+search()
+
+list.files()
+file.create("mytest.R")
+file.info("mytest.R")
+file.exists("mytest.R")
+file.rename("mytest.R", "mytest2.R")
+file.remove("mytest.R")
+file.copy("mytest.R", "mytest2.R")
+file.path("mytest.R")
+dir.create("mainDir/subDir", recursive = TRUE)
+unlink("testdir", recursive = TRUE)
+
+1:20
+pi:10
+15:1
+?`:`
+seq(1, 20)
+seq(0, 10, by=0.5)
+seq(5, 10, length=30)
+my_seq <- seq(5, 10, length=30)
+length(my_seq)
+
+1:length(my_seq)
+seq(along.with = my_seq)
+seq_along(my_seq)
+
+rep(0, times = 40)
+
+rep(c(0, 1, 2), times = 10) ## [1] 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2
+rep(c(0, 1, 2), each = 10) ## [1] 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2
+
+num_vect <- c(0.5, 55, -10, 6)
+tf <- num_vect < 1
+
+| If we have two logical expressions, A and B, we can ask whether at least one
+| is TRUE with A | B (logical 'or' a.k.a. 'union') or whether they are both TRUE
+| with A & B (logical 'and' a.k.a. 'intersection'). Lastly, !A is the negation
+| of A and is TRUE when A is FALSE and vice versa.
+
+my_char <- c("My", "name", "is")
+paste(my_char, collapse = " ")
+my_name <- c(my_char, "your_name_here")
+paste(my_name, collapse = " ")
+paste("Hello", "world!", sep = " ")
+paste(1:3, c("X", "Y", "Z"), sep = "")
+
+> paste(LETTERS, 1:4, sep = "-")
+ [1] "A-1" "B-2" "C-3" "D-4" "E-1" "F-2" "G-3" "H-4" "I-1" "J-2" "K-3" "L-4"
+[13] "M-1" "N-2" "O-3" "P-4" "Q-1" "R-2" "S-3" "T-4" "U-1" "V-2" "W-3" "X-4"
+[25] "Y-1" "Z-2"
+
+x <- c(44, NA, 5, NA)
+y <- rnorm(1000) ## create a vector containing 1000 draws from a standard normal distribution with y <- rnorm(1000)
+z <- rep(NA, 1000) ## create a vector containing 1000 NAs
+my_data <- sample(c(y, z), 100) ## select 100 elements at random from these 2000 values (combining y and z)
+my_na <- is.na(my_data)
+
+> my_data == NA
+  [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+ [26] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+ [51] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+ [76] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+
+| You are amazing!
+
+  |=============================================                          |  63%
+
+| The reason you got a vector of all NAs is that NA is not really a value, but
+| just a placeholder for a quantity that is not available. Therefore the logical
+| expression is incomplete and R has no choice but to return a vector of the
+| same length as my_data that contains all NAs.
+
+| The trick is to recognize that underneath the surface, R represents TRUE as
+| the number 1 and FALSE as the number 0. Therefore, if we take the sum of a
+| bunch of TRUEs and FALSEs, we get the total number of TRUEs.
+
+sum(my_na)
+
+> 0 / 0
+[1] NaN
+
+> Inf - Inf
+[1] NaN
+
+| I've created for you a vector called x that contains a random ordering of 20
+| numbers (from a standard normal distribution) and 20 NAs. Type x now to see
+| what it looks like.
+
+> x
+ [1] -0.5259595310  0.0003343565            NA            NA            NA
+ [6]            NA            NA            NA            NA -2.2277944526
+[11]            NA            NA -0.7758062267  0.1486272406  0.3028378463
+[16]            NA            NA            NA -1.6281601797            NA
+[21] -0.6335945873 -0.4254368545  0.3408319720  1.1337325609            NA
+[26]            NA  0.8089134227  0.5685701526  0.7881064087 -0.2731063829
+[31]  1.2728052716            NA -1.4324140954            NA -1.2150407307
+[36]            NA            NA -0.2480958311  0.2811635295            NA
+
+x[1:10]
+
+| Index vectors come in four different flavors -- logical vectors, vectors of
+| positive integers, vectors of negative integers, and vectors of character
+| strings -- each of which we'll cover in this lesson.
+
+| Let's start by indexing with logical vectors. One common scenario when working
+| with real-world data is that we want to extract all elements of a vector that
+| are not NA (i.e. missing data). Recall that is.na(x) yields a vector of
+| logical values the same length as x, with TRUEs corresponding to NA values in
+| x and FALSEs corresponding to non-NA values in x.
+
+| Recall that `!` gives us the negation of a logical expression, so !is.na(x)
+| can be read as 'is not NA'. Therefore, if we want to create a vector called y
+| that contains all of the non-NA values from x, we can use y <- x[!is.na(x)].
+| Give it a try.
+
+y <- x[!is.na(x)]
+
+> x[is.na(x)] ## A vector of all NAs
+ [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+
+y[y > 0] ## A vector of all the positive elements of y
+
+x[!is.na(x) & x > 0]
+
+> x[c(3, 5, 7)] ## subset the 3rd, 5th, and 7th elements of x
+
+x[c(2, 10)] ## 2nd and 10th elements of x
+x[c(-2, -10)] ## all elements of x EXCEPT for the 2nd and 10 elements
+x[-c(2, 10)] ## exact same result
+
+vect <- c(foo = 11, bar = 2, norf = NA)
+names(vect)
+
+vect2 <- c(11, 2, NA)
+names(vect2) <- c("foo", "bar", "norf")
+
+> identical(vect, vect2)
+[1] TRUE
+
+vect["bar"]
+vect[c("foo", "bar")]
+
+| The main difference, as you'll see, is that matrices can only contain a single
+| class of data, while data frames can consist of many different classes of
+| data.
+
+my_vector <- 1:20
+
+my_vector <- 1:3 ## same as my_vector <- c(1, 2, 3)
+dim(my_vector) ## dim() function tells us the 'dimensions' of an object
+
+> length(my_vector)
+[1] 20
+
+dim(my_vector) <- c(4, 5)
+
+| It's okay if that last command seemed a little strange to you. It should! The
+| dim() function allows you to get OR set the `dim` attribute for an R object.
+| In this case, we assigned the value c(4, 5) to the `dim` attribute of
+| my_vector.
+
+> dim(my_vector)
+[1] 4 5
+
+> attributes(my_vector)
+$dim
+[1] 4 5
+
+> my_vector
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    5    9   13   17
+[2,]    2    6   10   14   18
+[3,]    3    7   11   15   19
+[4,]    4    8   12   16   20
+
+> class(my_vector)
+[1] "matrix"
+
+my_matrix <- my_vector
+
+| The example that we've used so far was meant to illustrate the point that a
+| matrix is simply an atomic vector with a dimension attribute. A more direct
+| method of creating the same matrix uses the matrix() function.
+
+my_matrix2 <- matrix(1:20, nrow = 4, ncol = 5)
+
+> identical(my_matrix, my_matrix2)
+[1] TRUE
+
+patients <- c("Bill", "Gina", "Kelly", "Sean")
+
+| Now we'll use the cbind() function to 'combine columns'. Don't worry about
+| storing the result in a new variable. Just call cbind() with two arguments --
+| the patients vector and my_matrix.
+
+> cbind(patients, my_matrix)
+     patients                       
+[1,] "Bill"   "1" "5" "9"  "13" "17"
+[2,] "Gina"   "2" "6" "10" "14" "18"
+[3,] "Kelly"  "3" "7" "11" "15" "19"
+[4,] "Sean"   "4" "8" "12" "16" "20"
+
+
+| Something is fishy about our result! It appears that combining the character
+| vector with our matrix of numbers caused everything to be enclosed in double
+| quotes. This means we're left with a matrix of character strings, which is no
+| good.
+
+...
+
+  |===============================================                        |  66%
+
+| If you remember back to the beginning of this lesson, I told you that matrices
+| can only contain ONE class of data. Therefore, when we tried to combine a
+| character vector with a numeric matrix, R was forced to 'coerce' the numbers
+| to characters, hence the double quotes.
+
+my_data <- data.frame(patients, my_matrix)
+
+cnames <- c("patient", "age", "weight", "bp", "rating", "test")
+colnames(my_data) <- cnames
+
+> TRUE == TRUE
+[1] TRUE
+
+> (FALSE == TRUE) == FALSE
+[1] TRUE
+
+> TRUE != FALSE
+[1] TRUE
+
+> 5 != 7
+[1] TRUE
+
+| Excellent job!
+
+  |===================                                                    |  27%
+
+| In order to negate boolean expressions you can use the NOT operator. An
+| exclamation point `!` will cause !TRUE (say: not true) to evaluate to FALSE
+| and !FALSE (say: not false) to evaluate to TRUE. Try using the NOT operator
+| and the equals operator to find the opposite of whether 5 is equal to 7.
+
+> !5 == 7
+[1] TRUE
+
+| You got it!
+
+  |=====================                                                  |  29%
+
+| Let's take a moment to review. The equals operator `==` tests whether two
+| boolean values or numbers are equal, the not equals operator `!=` tests
+| whether two boolean values or numbers are unequal, and the NOT operator `!`
+| negates logical expressions so that TRUE expressions become FALSE and FALSE
+| expressions become TRUE.
+
+> (TRUE != FALSE) == !(6 == 7)
+[1] TRUE
+
+| Let's look at how the AND operator works. There are two AND operators in R,
+| `&` and `&&`. Both operators work similarly, if the right and left operands of
+| AND are both TRUE the entire expression is TRUE, otherwise it is FALSE. For
+| example, TRUE & TRUE evaluates to TRUE. Try typing FALSE & FALSE to how it is
+| evaluated.
+
+| You can use the `&` operator to evaluate AND across a vector. The `&&` version
+| of AND only evaluates the first member of a vector. Let's test both for
+| practice. Type the expression TRUE & c(TRUE, FALSE, FALSE).
+
+> TRUE & c(TRUE, FALSE, FALSE)
+[1]  TRUE FALSE FALSE
+
+> TRUE && c(TRUE, FALSE, FALSE)
+[1] TRUE
+
+| The OR operator follows a similar set of rules. The `|` version of OR
+| evaluates OR across an entire vector, while the `||` version of OR only
+| evaluates the first member of a vector.
+
+| As you may recall, arithmetic has an order of operations and so do logical
+| expressions. All AND operators are evaluated before OR operators. Let's look
+| at an example of an ambiguous case. Type: 5 > 8 || 6 != 8 && 4 > 3.9
+
+> 5 > 8 || 6 != 8 && 4 > 3.9
+[1] TRUE
+
+| Keep working like that and you'll get there!
+
+  |==========================================                             |  59%
+
+| Let's walk through the order of operations in the above case. First the left
+| and right operands of the AND operator are evaluated. 6 is not equal 8, 4 is
+| greater than 3.9, therefore both operands are TRUE so the resulting expression
+| `TRUE && TRUE` evaluates to TRUE. Then the left operand of the OR operator is
+| evaluated: 5 is not greater than 8 so the entire expression is reduced to
+| FALSE || TRUE. Since the right operand of this expression is TRUE the entire
+| expression evaluates to TRUE.
+
+| The function isTRUE() takes one argument. If that argument evaluates to TRUE,
+| the function will return TRUE. Otherwise, the function will return FALSE. Try
+| using this function by typing: isTRUE(6 > 4)
+
+> !isTRUE(4 < 3)
+[1] TRUE
+
+> isTRUE(6 > 4)
+[1] TRUE
+
+identical(5 > 4, 3 < 3.1)
+
+| You should also be aware of the xor() function, which takes two arguments. The
+| xor() function stands for exclusive OR. If one argument evaluates to TRUE and
+| one argument evaluates to FALSE, then this function will return TRUE,
+| otherwise it will return FALSE. Try out the xor() function by typing: xor(5 ==
+| 6, !FALSE)
+
+> xor(5 == 6, !FALSE)
+[1] TRUE
+
+ints <- sample(10)
+
+which(ints > 7)
+which(ints <= 2)
+
+> any(ints < 0)
+[1] FALSE
+
+> all(ints > 0)
+[1] TRUE
+
+| I've stored the dataset in a variable called flags. Type head(flags) to
+| preview the first six lines (i.e. the 'head') of the dataset.
+
+head(flags)
+
+| This tells us that there are 194 rows, or observations, and 30 columns, or
+| variables. Each observation is a country and each variable describes some
+| characteristic of that country or its flag. To open a more complete
+| description of the dataset in a separate text file, type viewinfo() when you
+| are back at the prompt (>).
+
+viewinfo()
+
+as.list(flags)
+
+cls_list <- lapply(flags, class)
+
+> class(cls_list)
+[1] "list"
+
+as.character(cls_list)
+
+cls_vect <- sapply(flags, class)
+
+> class(cls_vect)
+[1] "character"
+
+| In general, if the result is a list where every element is of length one, then
+| sapply() returns a vector. If the result is a list where every element is a
+| vector of the same length (> 1), sapply() returns a matrix. If sapply() can't
+| figure things out, then it just returns a list, no different from what
+| lapply() would give you.
+
+| Therefore, if we want to know the total number of countries (in our dataset)
+| with, for example, the color orange on their flag, we can just add up all of
+| the 1s and 0s in the 'orange' column. Try sum(flags$orange) to see this.
+
+sum(flags$orange)
+
+flag_colors <- flags[, 11:17]
+
+lapply(flag_colors, sum)
+sapply(flag_colors, sum)
+
+flag_shapes <-flags[, 19:23]
+
+lapply(flag_shapes, range)
+
+> unique(c(3, 4, 5, 5, 5, 6, 6))
+[1] 3 4 5 6
+
+unique_vals <- lapply(flags, unique)
+
+| lapply(unique_vals, function(elem) elem[2]) will return a list containing the
+| second item from each element of the unique_vals list. Note that our function
+| takes one argument, elem, which is just a 'dummy variable' that takes on the
+| value of each element of unique_vals, in turn.
+
+sapply(flags, unique)
+
+vapply(flags, unique, numeric(1))
+
+sapply(flags, class)
+
+vapply(flags, class, character(1))
+
+table(flags$landmass)
+
+> table(flags$animate)
+
+  0   1 
+155  39 
+
+| You nailed it! Good job!
+
+  |==================================================                     |  71%
+
+| This tells us that 39 flags contain an animate object (animate = 1) and 155 do
+| not (animate = 0).
+
+| If you take the arithmetic mean of a bunch of 0s and 1s, you get the
+| proportion of 1s. Use tapply(flags$animate, flags$landmass, mean) to apply the
+| mean function to the 'animate' variable separately for each of the six
+| landmass groups, thus giving us the proportion of flags containing an animate
+| image WITHIN each landmass group.
+
+> tapply(flags$animate, flags$landmass, mean)
+        1         2         3         4         5         6 
+0.4193548 0.1764706 0.1142857 0.1346154 0.1538462 0.3000000 
+
+| Keep working like that and you'll get there!
+
+  |========================================================               |  79%
+
+| The first landmass group (landmass = 1) corresponds to North America and
+| contains the highest proportion of flags with an animate image (0.4194).
+
+...
+
+  |===========================================================            |  83%
+
+| Similarly, we can look at a summary of population values (in round millions)
+| for countries with and without the color red on their flag with
+| tapply(flags$population, flags$red, summary).
+
+> tapply(flags$population, flags$red, summary)
+$`0`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00    0.00    3.00   27.63    9.00  684.00 
+
+$`1`
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    0.0     0.0     4.0    22.1    15.0  1008.0 
+
+> ls()
+
+> class(plants)
+[1] "data.frame"
+
+> dim(plants)
+[1] 5166   10
+
+> nrow(plants)
+[1] 5166
+
+| You are really on a roll!
+
+  |========================                                               |  33%
+
+| ... And ncol(plants) to see only the number of columns.
+
+> ncol(plants)
+[1] 10
+
+| If you are curious as to how much space the dataset is occupying in memory,
+| you can use object.size(plants).
+
+> object.size(plants)
+538888 bytes
+
+| You are really on a roll!
+
+names(plants)
+head(plants) ## first 6 rows, default set up
+head(plants, 10) ## first 10 rows
+
+> tail(plants, 15)
+
+summary(plants)
+
+table(plants$Active_Growth_Period)
+
+| Perhaps the most useful and concise function for understanding the *str*ucture
+| of your data is str(). Give it a try now.
+
+> str(plants)
+
+sample(1:6, 4, replace = TRUE) ## simulate rolling four six-sided dice
+
+| Now sample 10 numbers between 1 and 20, WITHOUT replacement. To sample without
+| replacement, simply leave off the 'replace' argument.
+
+> sample(1:20, 10)
+ [1]  1  3  9 14 18  6 12 13 17  5
+
+flips <- sample(c(0,1), 100, replace = TRUE, prob = c(0.3, 0.7))
+
+| Each probability distribution in R has an r*** function (for "random"), a d***
+| function (for "density"), a p*** (for "probability"), and q*** (for
+| "quantile")
+
+rnorm(10)
+
+> rnorm(10, mean = 100, sd = 25)
+
+| Generate 5 random values from a Poisson distribution with mean 10. Check out
+| the documentation for rpois() if you need help.
+
+> rpois(5, 10)
+[1] 13 11  8 14 19
+
+| All that practice is paying off!
+
+  |==========================================================             |  81%
+
+| Now use replicate(100, rpois(5, 10)) to perform this operation 100 times.
+| Store the result in a new variable called my_pois.
+
+| replicate() created a matrix, each column of which contains 5 random numbers
+| generated from a Poisson distribution with mean 10. Now we can find the mean
+| of each column in my_pois using the colMeans() function. Store the result in a
+| variable called cm.
+
+> cm <- colMeans(my_pois)
+
+> hist(cm)
+
+| Dates are represented by the 'Date' class and times are represented by the
+| 'POSIXct' and 'POSIXlt' classes. Internally, dates are stored as the number of
+| days since 1970-01-01 and times are stored as either the number of seconds
+| since 1970-01-01 (for 'POSIXct') or a list of seconds, minutes, hours, etc.
+| (for 'POSIXlt').
+
+d1 <- Sys.Date()
+
+> class(d1)
+[1] "Date"
+
+> unclass(d1)
+[1] 16481
+
+| That's the exact number of days since 1970-01-01!
+
+| However, if you print d1 to the console, you'll get today's date --
+| YEAR-MONTH-DAY. Give it a try.
+
+> d1
+[1] "2015-02-15"
+
+> d2 <- as.Date("1969-01-01")
+
+> unclass(d2)
+[1] -365
+
+| As you may have anticipated, you get a negative number. In this case, it's
+| -365, since 1969-01-01 is exactly one calendar year (i.e. 365 days) BEFORE
+| 1970-01-01.
+
+| Now, let's take a look at how R stores times. You can access the current date
+| and time using the Sys.time() function with no arguments. Do this and store
+| the result in a variable called t1.
+
+> 
+> t1 <- Sys.time()
+
+> t1
+[1] "2015-02-15 10:38:01 BDT"
+
+> class(t1)
+[1] "POSIXct" "POSIXt" 
+
+| As mentioned earlier, POSIXct is just one of two ways that R represents time
+| information. (You can ignore the second value above, POSIXt, which just
+| functions as a common language between POSIXct and POSIXlt.) Use unclass() to
+| see what t1 looks like internally -- the (large) number of seconds since the
+| beginning of 1970.
+
+> unclass(t1)
+[1] 1423975081
+
+| By default, Sys.time() returns an object of class POSIXct, but we can coerce
+| the result to POSIXlt with as.POSIXlt(Sys.time()). Give it a try and store the
+| result in t2.
+
+> t2 <- as.POSIXlt(Sys.time())
+
+> class(t2)
+[1] "POSIXlt" "POSIXt"
+
+> t2
+[1] "2015-02-15 10:40:28 BDT"
+
+| t2, like all POSIXlt objects, is just a list of values that make up the date
+| and time. Use str(unclass(t2)) to have a more compact view.
+
+> str(unclass(t2))
+List of 11
+ $ sec   : num 28.6
+ $ min   : int 40
+ $ hour  : int 10
+ $ mday  : int 15
+ $ mon   : int 1
+ $ year  : int 115
+ $ wday  : int 0
+ $ yday  : int 45
+ $ isdst : int 0
+ $ zone  : chr "BDT"
+ $ gmtoff: int 21600
+ - attr(*, "tzone")= chr [1:3] "" "BDT" "BDST"
+
+> t2$min
+[1] 40
+
+| The weekdays() function will return the day of week from any date or time
+| object. Try it out on d1, which is the Date object that contains today's date.
+
+> weekdays(d1)
+[1] "Sunday"
+
+| The months() function also works on any date or time object. Try it on t1,
+| which is the POSIXct object that contains the current time (well, it was the
+| current time when you created it).
+
+> months(t1)
+[1] "February"
+
+| The quarters() function returns the quarter of the year (Q1-Q4) from any date
+| or time object. Try it on t2, which is the POSIXlt object that contains the
+| time at which you created it.
+
+> quarters(t2)
+[1] "Q1"
+
+t3 <- "October 17, 1986 08:24"
+t4 <- strptime(t3, "%B %d, %Y %H:%M")
+
+> t3 <- strptime(("October 17, 1986 08:24"), ("%B %d, %Y %H:%M"))
+> t3
+[1] "1986-10-17 08:24:00 BDT"
+
+> Sys.time() > t1
+[1] TRUE
+
+> Sys.time() - t1
+Time difference of 26.60912 mins
+
+| Use difftime(Sys.time(), t1, units = 'days') to find the amount of time in
+| DAYS that has passed since you created t1.
+
+> difftime(Sys.time(), t1, units = 'days')
+Time difference of 0.01876156 days
+
+| We do not cover the more advanced portions of graphics in R in this lesson.
+| These include lattice, ggplot2 and ggvis.
+
+data(cars)
+
+> head(cars)
+  speed dist
+1     4    2
+2     4   10
+3     7    4
+4     7   22
+5     8   16
+6     9   10
+
+| Before plotting, it is always a good idea to get a sense of the data. Key R
+| commands for doing so include, dim(), names(), head(), tail() and summary().
+
+> plot(cars)
+
+| We will now spend some time exploring plot, but many of the topics covered
+| here will apply to most other R graphics functions. Note that 'plot' is short
+| for scatterplot.
+
+plot(x = cars$speed, y = cars$dist) ## also works: plot(cars$speed, cars$dist) as well as plot(dist ~ speed, cars)
+
+> plot(x = cars$speed, y = cars$dist, xlab = "Speed", ylab = "Stopping Distance")
+> plot(cars, main = "My Plot")
+> plot(cars, sub = "My Plot Subtitle")
+
+| Plot cars with a red color. (Use col = 2 to achieve this effect.)
+
+> plot(cars, col = 2)
+
+| Plot cars while limiting the x-axis to 10 through 15.  (Use xlim = c(10, 15)
+| to achieve this effect.)
+
+> plot(cars, xlim = c(10, 15))
+
+| The plot help page (?plot) only covers a small number of the many arguments
+| that can be passed in to plot() and to other graphical functions. To begin to
+| explore the many other options, look at ?par. Let's look at some of the more
+| commonly used ones. Continue using plot(cars, ...) as the base answer to these
+| questions.
+
+| You can also change the shape of the symbols in the plot. The help page for
+| points (?points) provides the details.
+
+| Plot cars using triangles.  (Use pch = 2 to achieve this effect.)
+
+> plot(cars, pch = 2)
+
+| Arguments like "col" and "pch" may not seem very intuitive. And that is
+| because they aren't! So, many/most people use more modern packages, like
+| ggplot2, for creating their graphics in R.
+
+...
+
+  |======================================================                 |  76%
+
+| It is, however, useful to have an introduction to base graphics because many
+| of the idioms in lattice and ggplot2 are modeled on them.
+
+...
+
+  |=======================================================                |  78%
+
+| Let's now look at some other functions in base graphics that may be useful,
+| starting with boxplots.
+
+...
+
+  |=========================================================              |  80%
+
+| Load the mtcars data frame.
+
+> data(mtcars)
+
+> ?boxplot
+
+| Instead of adding data columns directly as input arguments, as we did with
+| plot(), it is often handy to pass in the entire data frame. This is what the
+| "data" argument in boxplot() allows.
+
+| boxplot(), like many R functions, also takes a "formula" argument, generally
+| an expression with a tilde ("~") which indicates the relationship between the
+| input variables. This allows you to enter something like mpg ~ cyl to plot the
+| relationship between cyl (number of cylinders) on the x-axis and mpg (miles
+| per gallon) on the y-axis.
+
+| boxplot(), like many R functions, also takes a "formula" argument, generally
+| an expression with a tilde ("~") which indicates the relationship between the
+| input variables. This allows you to enter something like mpg ~ cyl to plot the
+| relationship between cyl (number of cylinders) on the x-axis and mpg (miles
+| per gallon) on the y-axis.
+
+> boxplot(formula = mpg ~ cyl, data = mtcars)
+
+> hist(mtcars$mpg)
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+getwd()
+read.csv("filename.csv")
+dir()
+ls()
+source("filename.R")
+
+c()
+vector()
+
+attributes()
+
+library(datasets)
+data(airquality)
+cor(airquality)
+
+na.omit()
+subset()
+
+msg <- "hello"
+x <- 1	## assigning values, nothing printed
+print(x)	## auto-printing occurs
+x	## explicit printing
+
+x <- 1:20	## creating a sequence all the way up to 20
+
+myfunction <- function() {
+	x <- rnorm(100)
+	mean(x)
+}
+
+second <- function(x) {
+	x + rnorm(length(x))
+}
+
+Objects
+• character
+• numeric (real numbers)
+• integer
+• complex
+• logical (True/False)
+
+Numbers - double precision real numbers (if you explicitly want an integer, spcify L suffix)
+1
+1L
+Inf - represents infinity (e.g., 1/0 is Inf; 1/Inf is 0)
+NaN - not a number (missing or undefined value; e.g., 0/0)
+
+Attributes
+• names, dimnames
+• dimensions (e.g., matrices, arrays)
+• class
+• length
+• user-defined, metadata
+
+c() function to create vectors of objects
+
+> x <- c(0.5, 0.6) ## numeric
+> x <- c(TRUE, FALSE) ## logical
+> x <- c(T, F) ## logical
+> x <- c("a", "b", "c") ## character
+> x <- 9:29 ## integer
+> x <- c(1+0i, 2+4i) ## complex
+
+vector()
+
+> x <- vector("numeric", length = 10)
+> x
+[1] 0 0 0 0 0 0 0 0 0 0
+
+Mixing Objects
+
+> y <- c(1.7, "a") ## character - "1.7", "a"
+> y <- c(TRUE, 2) ## numeric - 1, 2
+> y <- c("a", TRUE) ## character - "a", "TRUE"
+
+Objects can be explicitly coerced from one class to another using the as.* functions, if available
+
+> x <- 0:6
+> class(x)
+[1] "integer"
+> as.numeric(x)
+[1] 0 1 2 3 4 5 6
+> as.logical(x)
+[1] FALSE TRUE TRUE TRUE TRUE TRUE TRUE
+> as.character(x)
+[1] "0" "1" "2" "3" "4" "5" "6"
+
+Matrices
+
+> m <- matrix(nrow = 2, ncol = 3)
+> m
+[,1] [,2] [,3]
+[1,] NA NA NA
+[2,] NA NA NA
+> dim(m)
+[1] 2 3
+> attributes(m)
+$dim
+[1] 2 3
+
+> m <- matrix(1:6, nrow = 2, ncol = 3)
+> m
+[,1] [,2] [,3]
+[1,] 1 3 5
+[2,] 2 4 6
+
+> m <- 1:10
+> m
+[1] 1 2 3 4 5 6 7 8 9 10
+> dim(m) <- c(2, 5)
+> m
+[,1] [,2] [,3] [,4] [,5]
+[1,] 1 3 5 7 9
+[2,] 2 4 6 8 10
+
+cbind() and rbind()
+
+> x <- 1:3
+> y <- 10:12
+> cbind(x, y)
+x y
+[1,] 1 10
+[2,] 2 11
+[3,] 3 12
+> rbind(x, y)
+[,1] [,2] [,3]
+x 1 2 3
+y 10 11 12
+
+Data Frames
+
+• Data frames also have a special attribute called row.names
+• Data frames are usually created by calling read.table() or read.csv()
+• Can be converted to a matrix by calling data.matrix()
+
+> x <- data.frame(foo = 1:4, bar = c(T, T, F, F))
+> x
+foo bar
+1 1 TRUE
+2 2 TRUE
+3 3 FALSE
+4 4 FALSE
+> nrow(x)
+[1] 4
+> ncol(x)
+[1] 2
+
+Reading Data
+
+• read.table, read.csv, for reading tabular data
+• readLines, for reading lines of a text file
+• source, for reading in R code files (inverse of dump)
+• dget, for reading in R code files (inverse of dput)
+• load, for reading in saved workspaces
+• unserialize, for reading single R objects in binary form
+
+Writing Data
+
+write.table
+writeLines
+dump
+dput
+save
+serialize
+
+Reading Data Files with read.table
+
+• file, the name of a file, or a connection
+• header, logical indicating if the file has a header line
+• sep, a string indicating how the columns are separated
+• colClasses, a character vector indicating the class of each column in the dataset
+• nrows, the number of rows in the dataset
+• comment.char, a character string indicating the comment character
+• skip, the number of lines to skip from the beginning
+• stringsAsFactors, should character variables be coded as factors?
+
+Reading in Larger Datasets with read.table
+
+• Read the help page for read.table, which contains many hints
+• Make a rough calculation of the memory required to store your dataset
+• Set comment.char = "" if there are no commented lines in your file.
+
+• Use the colClasses argument. Specifying this option instead of using the default can make ’read.table’ run MUCH faster, often twice as fast
+If all of the columns are “numeric”, you can just set colClasses = "numeric"
+
+initial <- read.table("datatable.txt", nrows = 100)
+classes <- sapply(initial, class)
+tabAll <- read.table("datatable.txt", colClasses = classes)
+
+• Set nrows. This doesn’t make R run faster but it helps with memory usage. A mild overestimate is okay. You can use the Unix tool wc to calculate the number of lines in a file.
+
+Calculating Memory Requirements
+
+I have a data frame with 1,500,000 rows and 120 columns, all of which are numeric data. Roughly,
+how much memory is required to store this data frame?
+1,500,000 × 120 × 8 bytes/numeric
+= 1440000000 bytes
+= 1440000000 / 2^20 bytes/MB
+= 1,373.29 MB
+= 1.34 GB
+
+dput/dget
+
+> y <- data.frame(a = 1, b = "a")
+> dput(y)
+structure(list(a = 1,
+b = structure(1L, .Label = "a",
+class = "factor")),
+.Names = c("a", "b"), row.names = c(NA, -1L),
+class = "data.frame")
+> dput(y, file = "y.R")
+> new.y <- dget("y.R")
+> new.y
+   a b
+1 1 a
+
+dump/source
+
+> x <- "foo"
+> y <- data.frame(a = 1, b = "a")
+> dump(c("x", "y"), file = "data.R")
+> rm(x, y)
+> source("data.R")
+> y
+a b
+1 1 a
+> x
+[1] "foo"
+
+Control Structures
+
+• if, else: testing a condition
+• for: execute a loop a fixed number of times
+• while: execute a loop while a condition is true
+• repeat: execute an infinite loop
+• break: break the execution of a loop
+• next: skip an interation of a loop
+• return: exit a function
+
+Control Structures: if
+
+if(<condition>) {
+	## do something
+} else {
+	## do something else
+}
+if(<condition1>) {
+	## do something
+} else if(<condition2>) {
+	## do something different
+} else {
+	## do something different
+}
+
+
+if(x > 3) {
+	y <- 10
+} else {
+	y <- 0
+}
+
+
+y <- if(x > 3) {
+	10
+} else {
+	0
+}
+
+
+if(<condition1>) {
+	## do something
+}
+if(<condition2>) {
+	## do something
+}
+
+
+for(i in 1:10) {
+	print(i)
+}
+
+
+These four loops have the same behavior
+
+x <- c("a", "b", "c", "d")
+
+for(i in 1:4) {
+	print(x[i])
+}
+
+for(i in seq_along(x)) {
+	print(x[i])
+}
+
+for(letter in x) {
+	print(letter)
+}
+
+for(i in 1:4) print(x[i])
+
+
+For loops can be nested
+
+x <- matrix(1:6, 2, 3)
+
+for(i in seq_len(nrow(x))) {
+	for(j in seq_len(ncol(x))) {
+		print(x[i, j])
+	}
+}
+
+
+count <- 0
+while(count < 10) {
+	print(count)
+	count <- count + 1
+}
+
+
+More than one condition
+
+z <- 5
+
+while(z >= 3 && z <= 10) {
+	print(z)
+	coin <- rbinom(1, 1, 0.5)
+
+	if(coin == 1) { ## random walk
+		z <- z + 1
+	} else {
+		z <- z - 1
+	}
+}
+
+
+Functions
+
+f <- function(<arguments>) {
+	## Do something interesting
+}
+
+
+Argument Matching
+
+R functions arguments can be matched positionally or by name. So the following calls to sd are all equivalent
+
+> mydata <- rnorm(100)
+> sd(mydata)
+> sd(x = mydata)
+> sd(x = mydata, na.rm = FALSE)
+> sd(na.rm = FALSE, x = mydata)
+> sd(na.rm = FALSE, mydata)
+
+
+The “...” Argument
+
+The ... argument indicate a variable number of arguments that are usually passed on to other functions.
+... is often used when extending another function and you don’t want to copy the entire argument list of the original function.
+
+myplot <- function(x, y, type = "l", ...) {
+	plot(x, y, type = type, ...)
+}
+
+
+Lexical Scoping
+
+make.power <- function(n) {
+	pow <- function(x) {
+		x^n
+	}
+	pow
+}
+
+
+> cube <- make.power(3)
+> square <- make.power(2)
+> cube(3)
+[1] 27
+> square(3)
+[1] 9
+
+
+Exploring a Function Closure
+
+What’s in a function’s environment?
+
+> ls(environment(cube))
+[1] "n" "pow"
+> get("n", environment(cube))
+[1] 3
+> ls(environment(square))
+[1] "n" "pow"
+> get("n", environment(square))
+[1] 2
+
+
+Dates and Times in R
+
+R has developed a special representation of dates and times
+
+• Dates are represented by the Date class
+• Times are represented by the POSIXct or the POSIXlt class
+• Dates are stored internally as the number of days since 1970-01-01
+• Tmes are stored internally as the number of seconds since 1970-01-01
+
+
+Dates in R
+
+Dates are represented by the Date class and can be coerced from a character string using the as.Date() function.
+
+x <- as.Date("1970-01-01")
+x
+## [1] "1970-01-01"
+unclass(x)
+## [1] 0
+unclass(as.Date("1970-01-02"))
+## [1] 1
+
+
+Times in R
+
+Times are represented using the POSIXct or the POSIXlt class
+• POSIXct is just a very large integer under the hood; it use a useful class when you want to store times in something like a data frame
+• POSIXlt is a list underneath and it stores a bunch of other useful information like the day of the week, day of the year, month, day of the month
+
+There are a number of generic functions that work on dates and times
+• weekdays: give the day of the week
+• months: give the month name
+• quarters: give the quarter number (“Q1”, “Q2”, “Q3”, or “Q4”)
+
+
+Times in R
+
+Times can be coerced from a character string using the as.POSIXlt or as.POSIXct function.
+
+x <- Sys.time()
+x
+## [1] "2013-01-24 22:04:14 EST"
+p <- as.POSIXlt(x)
+names(unclass(p))
+## [1] "sec" "min" "hour" "mday" "mon"
+## [6] "year" "wday" "yday" "isdst"
+p$sec
+## [1] 14.34
+
+
+Times in R
+
+You can also use the POSIXct format.
+
+x <- Sys.time()
+x ## Already in ‘POSIXct’ format
+## [1] "2013-01-24 22:04:14 EST"
+unclass(x)
+## [1] 1359083054
+x$sec
+## Error: $ operator is invalid for atomic vectors
+p <- as.POSIXlt(x)
+p$sec
+## [1] 14.37
+
+
+Times in R
+
+Finally, there is the strptime function in case your dates are written in a different format
+
+datestring <- c("January 10, 2012 10:40", "December 9, 2011 9:10")
+x <- strptime(datestring, "%B %d, %Y %H:%M")
+x
+## [1] "2012-01-10 10:40:00 EST" "2011-12-09 09:10:00 EST"
+class(x)
+## [1] "POSIXlt" "POSIXt"
+
+
+Operations on Dates and Times
+
+You can use mathematical operations on dates and times. Well, really just + and -. You can do comparisons too (i.e. ==, <=)
+
+x <- as.Date("2012-01-01")
+y <- strptime("9 Jan 2011 11:34:21", "%d %b %Y %H:%M:%S")
+x-y
+## Warning: Incompatible methods ("-.Date",
+## "-.POSIXt") for "-"
+## Error: non-numeric argument to binary operator
+x <- as.POSIXlt(x)
+x-y
+## Time difference of 356.3 days
+
+
+Even keeps track of leap years, leap seconds, daylight savings, and time zones.
+
+x <- as.Date("2012-03-01") y <- as.Date("2012-02-28")
+x-y
+## Time difference of 2 days
+x <- as.POSIXct("2012-10-25 01:00:00")
+y <- as.POSIXct("2012-10-25 06:00:00", tz = "GMT")
+y-x
+## Time difference of 1 hours
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+R Programming | Week 1 Quiz
+
+> data <- read.csv("hw1_data.csv")
+> colnames(data)
+> allfrom2ndcolumn <- data[, 2]
+> allrowsfirst2columns <- data[, 1:2]
+> first2rows <- data[1:2, ]
+> rowcount <- nrow(data)
+> lastfewrows <- tail(data)
+
+> data[47,]
+   Ozone Solar.R Wind Temp Month Day
+   47    21     191 14.9   77     6  16
+> 
+
+How many missing values are in the Ozone column of this data frame?
+> length(which(is.na(data$Ozone)))
+[1] 37
+
+> ozone <- data[1]
+> summary(ozone)
+     Ozone       
+ Min.   :  1.00  
+ 1st Qu.: 18.00  
+ Median : 31.50  
+ Mean   : 42.13  
+ 3rd Qu.: 63.25  
+ Max.   :168.00  
+ NA's   :37      
+> 
+
+> summary(data$Temp)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  56.00   72.00   79.00   77.88   85.00   97.00 
+> 
+
+Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90. What is the mean of Solar.R in this subset?
+
+> subseta <- subset(data, Ozone > 31)
+> subsetb <- subset(subseta, Temp > 90)
+> summary(subsetb$Solar.R)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  167.0   188.2   200.0   212.8   234.0   272.0 
+> 
+
+What is the mean of "Temp" when "Month" is equal to 6?
+> subsetc <- subset(data, Month == 6)
+>  summary(subsetc$Temp)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  65.00   76.00   78.00   79.10   82.75   93.00 
+> 
+
+What was the maximum ozone value in the month of May (i.e. Month = 5)?
+> subsetd <- subset(data, Month == 5)
+> summary(subsetd$Ozone)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00   11.00   18.00   23.62   31.50  115.00       5 
+> 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+R Programming | Programming Assignment 1: Air Pollution
+
+source("http://d396qusza40orc.cloudfront.net/rprog%2Fscripts%2Fsubmitscript1.R")
+Course ID	rprog-011
+Submission Login	ahad.oli@gmail.com
+Submission Password	bcT6HdEYnK
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+R Programming | Week 2 Quiz
+
+
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+R Programming | Week 3 Quiz
+
+
