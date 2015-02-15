@@ -1491,8 +1491,6 @@ R Programming | Programming Assignment 1: Air Pollution
 
 source("http://d396qusza40orc.cloudfront.net/rprog%2Fscripts%2Fsubmitscript1.R")
 Course ID	rprog-011
-Submission Login	ahad.oli@gmail.com
-Submission Password	bcT6HdEYnK
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 R Programming | Week 2 Quiz
 
